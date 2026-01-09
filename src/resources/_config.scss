@@ -16,13 +16,14 @@
 
 // variables
 $color00: white;
-$color01: rgb(20, 20, 20);
+$color01: #141414;
+$color01bis: #14141446 ;
 $color02: rgb(156, 32, 96);
 $color02bis: rgb(163, 100, 130);
-$color03: rgb(85, 36, 168);
+$color03: #5524a8;
 
-$font01: 'geom';
-$font02: 'notosans';
+$font02: 'geom';
+$font01: 'notosans';
 
 $tablet: 800px;
 $desktop: 1200px;
@@ -88,7 +89,7 @@ article{
     }
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
     font-family: $font01;
 }
 p, span, a, li{

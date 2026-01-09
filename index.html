@@ -26,7 +26,21 @@
         <article class="art01">
           <h3>(h3) Nuestra panadería</h3>
 
-          <img src="https://dummyimage.com/1000x500" alt="" title="">
+          <img
+          srcset="
+          https://dummyimage.com/900x900 900w,
+          https://dummyimage.com/1800x1100 1800w,
+          https://dummyimage.com/2560x1200 2560w
+          "
+          sizes="
+          (width <= 900px) 800px,
+          (width <= 1500px) 1200px,
+          2560px
+          "
+          src="https://dummyimage.com/900x900"
+          width="900"
+          alt="" 
+          title="">
 
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum voluptatum natus ea veritatis harum qui eaque atque exercitationem laudantium? Inventore illum explicabo vero error laborum beatae atque eligendi fugit possimus repudiandae, dolor cupiditate itaque tempore! Et maxime, laboriosam consectetur, similique sunt corporis eum eveniet officia rerum ducimus molestias dolorum libero.</p>
 
@@ -173,14 +187,55 @@
 
         <h2>(h2) Nuestros productos</h2>
 
+        <!-- beneficios de los ingredientes -->
+        <article class="art03">
+          <h3>Encabezado h3</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ipsum libero saepe voluptatem unde sequi quas corporis quibusdam debitis odit ea, asperiores facere ullam ab dolores perspiciatis sapiente aliquid officia nisi corrupti voluptatibus provident laboriosam similique deleniti. Consequuntur, explicabo id amet corrupti at reiciendis, ullam eaque asperiores est officiis sint?</p>
+          <div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/50x50" alt="">
+              <h4>Encabezado h4</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt totam excepturi officia ipsam aut illo recusandae placeat, neque ut inventore.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/50x50" alt="">
+              <h4>Encabezado h4</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt totam excepturi officia ipsam aut illo recusandae placeat, neque ut inventore.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/50x50" alt="">
+              <h4>Encabezado h4</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt totam excepturi officia ipsam aut illo recusandae placeat, neque ut inventore.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/50x50" alt="">
+              <h4>Encabezado h4</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt totam excepturi officia ipsam aut illo recusandae placeat, neque ut inventore.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/50x50" alt="">
+              <h4>Encabezado h4</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt totam excepturi officia ipsam aut illo recusandae placeat, neque ut inventore.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/50x50" alt="">
+              <h4>Encabezado h4</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt totam excepturi officia ipsam aut illo recusandae placeat, neque ut inventore.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- panaderia -->
         <article>
           <h3>(h3) Panadería</h3>
         </article>
 
+        <!-- pastelería -->
         <article>
           <h3>(h3) Pastelería</h3>
         </article>
 
+        <!-- torrijas -->
         <article>
           <h3>(h3) Torrijas</h3>
         </article>

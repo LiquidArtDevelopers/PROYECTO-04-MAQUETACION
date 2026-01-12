@@ -52,7 +52,7 @@ header{
     justify-content: center;
 }
 main{    
-    background-color: rgb(38, 164, 38);
+    // background-color: rgb(38, 164, 38);
     row-gap: 3rem;
     @media only screen and (min-width:$tablet){
         row-gap: 4rem;
@@ -67,7 +67,7 @@ footer{
 }
 
 section{
-    background-color: antiquewhite;    
+    // background-color: antiquewhite;    
     padding: $padMin 0;
     row-gap: 2rem;
     @media only screen and (min-width:$tablet){

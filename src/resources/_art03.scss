@@ -19,9 +19,12 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: flex-start;
         gap: 1rem;
+        @media only screen and (min-width:c.$tablet){
+            gap: 2rem;
+        }
         .ficha{
             // background-color: aqua;
             width: 47%;
@@ -39,7 +42,9 @@
             }
             p{
                 font-size: clamp(0.7rem, 3vw, 1rem);
+                color: c.$color01;
             }
         }
     }
 }
+

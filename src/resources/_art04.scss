@@ -4,8 +4,8 @@
     width: 80%;
     display: grid;
     gap: 1rem;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
     grid-template-areas: 
         'area01'
         'area02' 
@@ -17,9 +17,9 @@
         'area08'
     ;
     @media only screen and (min-width:c.$tablet){
-        // grid-template-rows: 20%;
+        grid-auto-rows: 20%;
         gap: .5rem;
-        grid-template-columns: 40%  auto;
+        grid-auto-columns: 40%  auto;
         grid-template-areas: 
             'area01 area02'
             'area03 area03'
@@ -29,7 +29,8 @@
         ;
     }
     @media only screen and (min-width:c.$desktop){
-        grid-template-rows: auto;
+        grid-auto-rows: auto;
+        grid-auto-columns: auto;
         grid-template-areas: 
             'area01 area02 area04 area05'
             'area03 area03 area04 area06'

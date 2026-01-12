@@ -17,7 +17,8 @@
         'area08'
     ;
     @media only screen and (min-width:c.$tablet){
-        grid-template-rows: 20%;
+        // grid-template-rows: 20%;
+        gap: .5rem;
         grid-template-columns: 40%  auto;
         grid-template-areas: 
             'area01 area02'

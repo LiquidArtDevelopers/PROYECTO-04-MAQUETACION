@@ -1,26 +1,28 @@
 @use './resources/_config' as c;
+
 @use './resources/_art01';
 @use './resources/_art02';
 @use './resources/_art03';
 @use './resources/_art04';
+@use './resources/_art05';
 
 
 
 
-.art03{
-    width: 80%;
-    background-color: c.$color03;
-    p, >:nth-child(1){
-        color: c.$color00;
-    } 
-    >div{
-        .ficha{
-            align-items: center;
-            p, >:nth-child(2){
-                color: c.$color00;
-            }
-        }   
-    }  
-}
+// .art03{
+//     width: 80%;
+//     background-color: c.$color03;
+//     p, >:nth-child(1){
+//         color: c.$color00;
+//     } 
+//     >div{
+//         .ficha{
+//             align-items: center;
+//             p, >:nth-child(2){
+//                 color: c.$color00;
+//             }
+//         }   
+//     }  
+// }
 
 

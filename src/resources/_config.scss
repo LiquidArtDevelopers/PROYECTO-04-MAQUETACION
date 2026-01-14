@@ -16,8 +16,10 @@
 
 // variables
 $color00: white;
+$color00bis: #ebebeb;
 $color01: #141414;
-$color01bis: #14141446 ;
+$color01bis: #14141446;
+$color01bis2: #c3c3c3;
 $color02: rgb(156, 32, 96);
 $color02bis: rgb(163, 100, 130);
 $color03: #5524a8;
@@ -78,7 +80,7 @@ section{
     }
 }
 article{
-    background-color: aliceblue;
+    // background-color: aliceblue;
     width: 100%;
     padding: $padMin;
     @media only screen and (min-width:$tablet){

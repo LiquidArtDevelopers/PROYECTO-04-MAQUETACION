@@ -79,17 +79,7 @@ section{
         padding: 6rem 0;
     }
 }
-article{
-    // background-color: aliceblue;
-    width: 100%;
-    padding: $padMin;
-    @media only screen and (min-width:$tablet){
-        width: 90%;
-    }
-    @media only screen and (min-width:$desktop){
-        width: 60%;
-    }
-}
+
 
 h1, h2, h3, h4{
     font-family: $font01;

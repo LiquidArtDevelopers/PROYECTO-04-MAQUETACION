@@ -1,0 +1,104 @@
+@use 'config' as c;
+
+.artForm01{
+    // background-color: aqua;
+    width: 100%;
+    padding: c.$padMin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 2rem;
+    @media only screen and (min-width:c.$tablet){
+        width: 90%;
+        padding: initial;
+    }
+    @media only screen and (min-width:c.$desktop){
+        width: 80%;
+    }
+    >:nth-child(1){
+        width: 100%;
+        text-align: left;
+    }
+    >div{
+        // background-color: aliceblue;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        row-gap: 2rem;
+        @media only screen and (min-width:c.$tablet){
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .contenedor-form{
+            background-color: c.$color01bis;
+            order: 2;
+            width: 100%;           
+            @media only screen and (min-width:c.$tablet){
+                order: 1;
+                padding: c.$padMin;
+            }
+            @media only screen and (min-width:c.$desktop){
+                width: 40%;
+            }
+            form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                row-gap: 0.5rem;
+                input, textarea{
+                    width: 100%;
+                    padding: 0.5rem 1.5rem;
+                    font-size: clamp(1rem, 3vw, 1.3rem);
+                }
+                textarea{
+                    min-width: 100%;
+                    max-width: 100%;
+                    min-height: 100px;
+                    max-height: 300px;
+                }
+                label{
+                    margin-top: 0.5rem;
+                }
+            }
+
+        }
+        .contenedor-info{
+            order: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            row-gap: 2rem;
+            @media only screen and (min-width:c.$tablet){
+                order: 2;
+                padding: c.$padMin;
+            }
+            @media only screen and (min-width:c.$desktop){
+                width: 60%;
+            }
+            ul{
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                row-gap: 1.5rem;
+                li a{
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 3rem;
+                }
+            }
+            iframe{
+                border-radius: 10px;
+            }
+        }
+    }
+}

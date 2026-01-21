@@ -4,6 +4,8 @@
 
 // 1 recibir los datos del formulario
 
+echo $_POST['nombre'];
+
 
 // 2 comprobar que los datos son correctos.
 

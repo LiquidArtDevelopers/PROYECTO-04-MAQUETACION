@@ -334,7 +334,7 @@
           <div>
             <div class="contenedor-form">
               <img src="./src/resources/mail.svg" alt="">
-              <form action="./App/gestionform.php" method="post">
+              <form action="/App/gestionform.php" method="post" id="idForm">
                 <!-- nombre -->
                 <label for="nombre">Nombre *</label>
                 <input type="text" id="nombre" name="nombre" minlength="3" maxlength="20" placeholder="Escribe aquí tu nombre *" required>
@@ -362,9 +362,10 @@
                 <label for="respuesta">Resuelve</label>
                 <div class="horizontal">
                   <span id="num1">3</span>
-                  <span>+</span>
+                  <span id="operador">+</span>
                   <span id="num2">7</span>
                   <input type="text" name="respuesta" id="respuesta" placeholder="Respuesta" required>
+                  <input type="hidden" name="respSystem" id="respSystem" value="">
                 </div>
 
                 <input type="submit" class="boton">

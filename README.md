@@ -14,7 +14,7 @@ Borrar la carpeta .git de existir. Recuerda configurar tu exploirador de archivo
 
 -  borrar carpeta .git
 
-![alt text](readme/image.png)
+![alt text](readme/image2.png)
 
 ## 3. Instalar las dependencias de composer y npm.
 

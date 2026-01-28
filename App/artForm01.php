@@ -107,48 +107,77 @@ if(comprobarCaracteres($mensaje, 4, 200)){
 // 3 enviar correos de aviso: a la empresa y al propio usuario
 // enviar un correo al admin de la web
 // recoger más variables que necesita el phpMailer:correo emisor y el nombre emisor,el correo receptor y su nombre, título del correo
+$urlWeb = "http://localhost:3000";
 $correoEmisor =$_ENV['EMAIL_WEB'];
 $nombreEmisor ="Web Panadería";
 $correoDestinatario = $_ENV['EMAIL_ADMIN'];
 $nombreDestinatario= "Admin de la web";
 $asunto = "Has recibido una nueva consulta en la web de $nombre";
-$cuerpo='
+$cuerpo =
+'
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>'.$asunto.'</title>
 </head>
-<body align="center" style="padding: 1.5rem;background-color: rgb(255, 227, 227);">
-    <h1>Has recibido un nuevo mensaje de '.$nombre.'</h1>
-    <p>Estos son los datos que hemos recibido en la web de <a href="https://profe.webda.eus/proyecto05/">profe.webda.eus/proyecto05</a> de la consulta del usuario:</p>
-    <table align="center">
-        <tr>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Nombre:</td>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$nombre.'</td>
-        </tr>
-        <tr>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Teléfono:</td>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$telefono.'</td>
-        </tr>
-        <tr>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Correo Electrónico:</td>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$email.'</td>
-        </tr>
-        <tr>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Consulta:</td>
-            <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$mensaje.'</td>
-        </tr>
-    </table>
+<body>
+    <!-- LOGO -->
+    <a href="'.$urlWeb.'" target="_blank" style="text-decoration:none;border:0;">
+        <img src="cid:reflogotipo" width="150" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" alt="{web}">
+    </a>
+    <h1>Hola '.$nombreDestinatario.'</h1>
+    <p>Has recibido una nueva consulta de '.$nombre.', a continuación dispones de sus datos de contacto y su mensaje:</p>
 
-    <p>Un saludo</p>
-    <p>Equipo de Panadería Agianga</p>
-    
+    <ul>
+        <li>Nombre: '.$nombre.'</li>
+        <li>Teléfono: '.$telefono.'</li>
+        <li>Correo: '.$email.'</li>
+        <li>Mensaje: '.$mensaje.'</li>
+    </ul>
 
-</body> 
+    <p>Muchas gracias, equipo web</p>
+</body>
 </html>
 ';
+// $cuerpo='
+// <!DOCTYPE html>
+// <html lang="es">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>'.$asunto.'</title>
+// </head>
+// <body align="center" style="padding: 1.5rem;background-color: rgb(255, 227, 227);">
+//     <h1>Has recibido un nuevo mensaje de '.$nombre.'</h1>
+//     <p>Estos son los datos que hemos recibido en la web de <a href="https://profe.webda.eus/proyecto05/">profe.webda.eus/proyecto05</a> de la consulta del usuario:</p>
+//     <table align="center">
+//         <tr>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Nombre:</td>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$nombre.'</td>
+//         </tr>
+//         <tr>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Teléfono:</td>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$telefono.'</td>
+//         </tr>
+//         <tr>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Correo Electrónico:</td>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$email.'</td>
+//         </tr>
+//         <tr>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">Consulta:</td>
+//             <td align="left" style="background-color: white;padding: 0.5rem 1rem;border: 1px solid black">'.$mensaje.'</td>
+//         </tr>
+//     </table>
+
+//     <p>Un saludo</p>
+//     <p>Equipo de Panadería Agianga</p>
+    
+
+// </body> 
+// </html>
+// ';
 
 
 include "./envioPhpMailer.php";

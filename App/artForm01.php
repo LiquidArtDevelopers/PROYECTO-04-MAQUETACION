@@ -191,7 +191,7 @@ $con = mysqli_connect($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASS'], $_EN
 if($con === false){
     error_log('Error de conexion con la DB: ' . mysqli_connect_error());
 }else{
-    // en caso de que haya cnexión, continuamos
+    // en caso de que haya conexión, continuamos
     $con->set_charset("utf8mb4");
     $sql = "INSERT INTO `consultas`(`nombre`, `telefono`, `email`, `mensaje`, `ip`, `fecha`) VALUES (?,?,?,?,?,?)";
     $stmt = mysqli_prepare($con, $sql);

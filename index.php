@@ -21,27 +21,60 @@
             <!-- contacto -->
       <section>
         <h2>(h2) Contacto</h2>
-        <article class="artForm01">
+        
+        <article class="artForm01" id="form">
+
+          <?php
+          // comprobar si hay variables get en la URL
+          // si hay variables las voy a recoger aquí
+          // si recojo variables, las usaré en el formulario para mostrar mensajes, por ejemplo de error, por ejemplo losvalorfes que el user había puesto antes en el formulario
+          // Recoger el error si existe error, y mostrar el mensaje con el error
+          // Depende del error, lo mostraremos encima del input donde está el error
+          // Como recogemos los value de los input que el user mandó al backend, volvemos a rellenar los values de los input con esos valores, para que se respete el UX
+
+          if(isset($_GET['error'])){
+            $error = $_GET['error'];
+            $campo = $_GET['campo'];
+            $nombre = $_GET['nombre'];
+            $telefono = $_GET['tel'];
+            $email = $_GET['email'];
+            $mensaje = $_GET['mensaje'];
+          }
+
+          ?>
+
           <h3>(h3) formulario y datos</h3>
           <div>
             <div class="contenedor-form">
               <img src="./src/resources/mail.svg" alt="">
+              <?php
+              if(!isset($_GET['envio'])){              
+              ?>
               <form action="/App/artForm01.php" method="post" id="idForm">
+
+                <?php
+                if(isset($error)){   
+                ?>
+                  <p class="error">Hay un error en el campo <?=$campo?> de tipo <?= $error?></p>
+                <?php
+                }
+                ?>
+
                 <!-- nombre -->
                 <label for="nombre">Nombre *</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí tu nombre *">
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí tu nombre *" value="<?php if(isset($error)){echo $nombre;}?>">
 
                 <!-- teléfono -->
                 <label for="telefono">Teléfono *</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Escribe aquí tu teléfono *">
+                <input type="tel" id="telefono" name="telefono" placeholder="Escribe aquí tu teléfono *" value="<?php if(isset($error)){echo $telefono;}?>">
 
                 <!-- Correo -->
                 <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Escribe aquí tu correo electrónico">
+                <input type="email" id="email" name="email" placeholder="Escribe aquí tu correo electrónico" value="<?php if(isset($error)){echo $email;}?>">
 
                 <!-- Mensaje -->
                 <label for="mensaje">Escribe tu mensaje</label>
-                <textarea name="mensaje" id="mensaje" placeholder="Escribe aquí tu mensaje"></textarea>
+                <textarea name="mensaje" id="mensaje" placeholder="Escribe aquí tu mensaje"><?php if(isset($error)){echo $mensaje;}?></textarea>
 
                 <!-- términos -->
                 <div class="horizontal">
@@ -62,6 +95,15 @@
 
                 <input type="submit" class="boton" value="Enviar">
               </form>
+              <?php
+              }else{
+                $nombre=$_GET['nombre'];
+              ?>
+              <h3>Gracias, hemos recibido tu consulta <?= $nombre ?></h3>
+              <?php
+              }
+              ?>
+
             </div>
             <div class="contenedor-info">
               <ul>
@@ -94,6 +136,7 @@
             </div>
           </div>
         </article>
+
       </section>
 
       <!-- quienes somos -->

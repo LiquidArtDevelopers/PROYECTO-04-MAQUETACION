@@ -11,7 +11,6 @@ const loader = document.getElementById("moduleLoader01")
 
 
 
-
 // Evento de escucha de que se haga submit del form
 formulario.addEventListener("submit", function(e){
 

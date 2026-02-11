@@ -3,12 +3,14 @@
 
 // prueba de crear variables
 $mensaje = "Enviado con éxito";
-$fallo = false;
+$fallo = true;
+$campo = "";
 
 // creación de array asociativo
 $arrayRespuesta = array(
     'mensaje' => $mensaje,
-    'fallo' => $fallo
+    'fallo' => $fallo,
+    'campo' => $campo
 );
 
 // crear un json del array

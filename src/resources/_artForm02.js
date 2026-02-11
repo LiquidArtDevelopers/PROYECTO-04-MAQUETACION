@@ -1,10 +1,16 @@
 // ZONA DE ENVÍO DE FORMULARIO MEDIANTE AJAX
 
 // 1) Recogemos los elementos HTML necesarios
-const formulario = document.getElementById("idForAjax")
-const botonEnviarAjax = document.getElementById("botonEnviarAjax")
-const h3Form02 = document.getElementById("h3Form02")
+const formulario = document.querySelector("#idForAjax") //recogemos sólo el elemento que tenga el id requerido
+const botonEnviarAjax = formulario.querySelector("#botonEnviarAjax")
+const inputs = formulario.querySelectorAll("input, textarea") //recogemos en un array todos los input y textarea de formulario
+
+const h3Form02 = document.querySelector("#h3Form02")
 const errorForm02 = document.getElementById("errorForm02")
+const loader = document.getElementById("moduleLoader01")
+
+
+
 
 // Evento de escucha de que se haga submit del form
 formulario.addEventListener("submit", function(e){
@@ -13,6 +19,9 @@ formulario.addEventListener("submit", function(e){
     e.preventDefault()
     // recoger todas las claves/valor del form (inputs)
     const camposFormulario = new FormData(document.forms.namedItem("idForAjax"))
+
+
+    // OPCIÓN A XMLHTTPREQUEST (AJAX)----------------------
     
     // construimos el objeto de clase xmlHttpRequest
     const xmlhttp = new XMLHttpRequest()
@@ -20,8 +29,11 @@ formulario.addEventListener("submit", function(e){
         // esperamos y recibimos respuesta
         if(xmlhttp.status==200){
 
+            // CÓDIGO QUE SE EJECUTA CUANDO HAY RESPUESTA DEL AJAX (SE EJECUTA 2º)
+            // ###################################################################
             // cuando recibo código 200, ed sque recibo la respuesta
             // quito el loader
+            
             
             console.log(xmlhttp.responseText)
             let jsonRecibido = xmlhttp.responseText;
@@ -29,14 +41,25 @@ formulario.addEventListener("submit", function(e){
             let mensaje = ArrayJson.mensaje;
             let fallo = ArrayJson.fallo;
             // muestro fallo si es fallo o muestro el gracias
+
+            loader.style.display="none" //Quitamos loader
+
+            // si hay fallo en algún campo del form, volvemos al form
             if(fallo == true){
+
+                errorForm02.innerText=mensaje //mostramos error 
+                // habilitamos el formulario de nuevo
+                botonEnviarAjax.style.pointerEvents="initial"
+                formulario.style.filter="initial"
+                inputs.forEach(el => {
+                    el.disabled=false
+                });
                 
-                errorForm02.innerText=mensaje
-                
+            // Si no hay ningún fallo, damos por bueno el envío, quitamos el form y damos gracias
             }else{
-
+                // CUANDO NO HAY FALLO Y TODO ES OK
+                // Quitamos form y mostramos mensaje de gracias
                 formulario.style.display="none"
-
                 h3Form02.innerText=mensaje
                 
             }
@@ -46,8 +69,63 @@ formulario.addEventListener("submit", function(e){
     xmlhttp.open("POST", "/App/artForm02.php", true)
     xmlhttp.send(camposFormulario)
 
+
+    // CÓDIGO QUE SE EJECUTA MIENTRAS ENVÍA Y RECIBE EL AJAX (SE EJECUTA 1º)
+    // ####################################################################
     // aquí podría ejecutar código simultáneo al envío
     // muestro loader
+    loader.style.display="initial"
+    formulario.style.filter="blur(2px)"  //difumino el form
+    botonEnviarAjax.style.pointerEvents="none" //evito que sea interactuable el botón
+
+    // Iteramos el array "inputs" donde dentro están todos los input y textarea del elemento formulario.
+    // en cada iteración el elemento "el" representa el item en cuestión. en cada vuelta el será un input o textarea diferente
+    // en cada vuelta pasamos a disable cada input o textarea
+    // deshabilito los input y textarea del form
+    inputs.forEach(el => {
+        el.disabled=true
+    });
+
+    
+    
+
+    
+    
+
+
+    // // OPCIÓN B FETCH---------------------- 
+
+    // fetch("/App/artForm02.php", { method: "POST", body: camposFormulario })
+    // .then(async (res) => {
+    //     if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+    //     const texto = await res.text()
+    //     console.log(texto)              // equivalente a xmlhttp.responseText
+
+    //     return JSON.parse(texto)        // equivalente a JSON.parse(xmlhttp.responseText)
+    // })
+    // .then(({ mensaje, fallo, campo }) => {
+
+    //     // quitaría el loader
+
+    //     // lógica una vez se recibe con éxito la respuesta y los valores
+    //     if (fallo === true) {
+    //         errorForm02.innerText = mensaje
+    //     } else {
+    //         formulario.style.display = "none"
+    //         h3Form02.innerText = mensaje
+    //     }
+    // })
+    // .catch((err) => {
+
+    //     // quitaría el loader
+
+    //     console.error(err)
+    //     errorForm02.innerText = "Ha ocurrido un error al enviar el formulario."
+    // })
+
+    // // loader
+
 
 })
 

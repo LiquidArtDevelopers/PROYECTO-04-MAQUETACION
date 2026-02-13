@@ -193,8 +193,7 @@ if($con === false){
     }else{
         // inserción definitiva en al DB
         mysqli_stmt_bind_param($stmt, "ssssss", $nombre, $telefono, $email, $mensaje, $ip, $fecha);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
+        mysqli_stmt_execute($stmt); 
     }
     // salimos
     mysqli_close($con);
@@ -209,7 +208,7 @@ if($con === false){
 // 5 redirigir a la página index para mostrar un mensaje de envío ok, en vez del formulario
 // urlencode evita romper la cabecera si el nombre lleva espacios o acentos
 
-enviarRespuestaAsincrona("Gracias por escribirnos, $nombre. En breve te contactaremos", false, ""); 
+enviarRespuestaAsincrona("Gracias por escribirnos, $nombre. En breve te contactaremos", false, $nombre); 
 
 
 ?>

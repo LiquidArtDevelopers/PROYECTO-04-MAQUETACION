@@ -1,10 +1,26 @@
+<?php
+// Cargamos .env para poder leer APP_ENV en local (dev/prod)
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
+    if (class_exists('Dotenv\\Dotenv')) {
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->safeLoad();
+    }
+}
+
+require __DIR__ . '/config/helpers.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="<?php echo vite_public_url('vite.svg'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>proyecto-04-maquetacion</title>
+    <?php
+      // Inyecta CSS/JS desde Vite (manifest en produccion o /src en desarrollo)
+      vite_assets();
+    ?>
   </head>
   <body>
     
@@ -18,7 +34,7 @@
 
     <main>
 
-            <!-- contacto -->
+      <!-- contacto -->
       <section>
         <h2 id="artForm01">(h2) Artículo de form01 envío por POST y GET</h2>
         
@@ -46,11 +62,11 @@
           <h3>(h3) formulario y datos</h3>
           <div>
             <div class="contenedor-form">
-              <img src="./src/resources/mail.svg" alt="">
+              <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="">
               <?php
               if(!isset($_GET['envio'])){              
               ?>
-              <form action="/App/artForm01.php" method="post" id="idForm">
+              <form action="App/artForm01.php" method="post" id="idForm">
 
                 <?php
                 if(isset($error)){   
@@ -109,25 +125,25 @@
               <ul>
                 <li>
                   <a href="tel:+34943123123" target="_blank">
-                    <img src="./src/resources/tel.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/tel.svg'); ?>" alt="" title="">
                     <span>943 123 123</span>
                   </a>
                 </li>
                 <li>
                   <a href="mailto:aranaz@webda.eus" target="_blank">
-                    <img src="./src/resources/mail.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="" title="">
                     <span>aranaz@webda.eus</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://wa.me/628749350" target="_blank">
-                    <img src="./src/resources/wa.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/wa.svg'); ?>" alt="" title="">
                     <span>628 749 350</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://maps.app.goo.gl/Kh7rZM3WF1chSZSj7" target="_blank">
-                    <img src="./src/resources/map.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/map.svg'); ?>" alt="" title="">
                     <span>C/ Juan Fermín, Juan F. Gilisagasti Kalea, 4, 1º, 20018 Donostia / San Sebastián, Gipuzkoa</span>
                   </a>
                 </li>
@@ -147,9 +163,17 @@
           <h3>(h3) formulario y datos</h3>
           <div>
             <div class="contenedor-form">
-              <img src="./src/resources/mail.svg" alt="">
-                
-              <h3 id="h3Form02"></h3>
+              
+              <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="">
+                             
+
+              <!-- MODAL QUE SALE CUANDO SE ENVÍA EL FORM CON ÉXITO -->
+              <div id="modal_envio">
+                <!-- nuestro modal con html y css -->
+                <h3 id="h3_modal_envio">Lorem ipsum dolor sit amet.</h3>
+                <p id="p_modal_envio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem quia porro obcaecati accusamus laborum fuga totam assumenda fugiat sint pariatur!</p>
+                <div class="boton" id="boton_modal_envio">Escribir otra consulta</div>
+              </div>
 
               <form id="idForAjax">
                 
@@ -257,25 +281,25 @@
               <ul>
                 <li>
                   <a href="tel:+34943123123" target="_blank">
-                    <img src="./src/resources/tel.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/tel.svg'); ?>" alt="" title="">
                     <span>943 123 123</span>
                   </a>
                 </li>
                 <li>
                   <a href="mailto:aranaz@webda.eus" target="_blank">
-                    <img src="./src/resources/mail.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="" title="">
                     <span>aranaz@webda.eus</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://wa.me/628749350" target="_blank">
-                    <img src="./src/resources/wa.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/wa.svg'); ?>" alt="" title="">
                     <span>628 749 350</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://maps.app.goo.gl/Kh7rZM3WF1chSZSj7" target="_blank">
-                    <img src="./src/resources/map.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/map.svg'); ?>" alt="" title="">
                     <span>C/ Juan Fermín, Juan F. Gilisagasti Kalea, 4, 1º, 20018 Donostia / San Sebastián, Gipuzkoa</span>
                   </a>
                 </li>
@@ -374,23 +398,23 @@
               <h4>Atención personalizada</h4>
               <ul>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
               </ul>
@@ -400,23 +424,23 @@
               <h4>Los mejores ingredientes</h4>
               <ul>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
               </ul>
@@ -603,10 +627,7 @@
 
     </footer>
 
-
-    
-
-
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
+
+

@@ -123,6 +123,18 @@ $bordeRadio: 10px;
                     }
                 }
             }
+            #modal_envio{
+                // aquí los estilos del modal
+                display: none;
+                flex-direction: column;
+                row-gap: 2rem;
+                padding: c.$padMin;
+                @media only screen and (min-width:c.$tablet){
+                    padding: 3rem;
+                    border-radius: 50px;
+                }
+                cursor: pointer;
+            }
 
         }
         .contenedor-info{
@@ -170,4 +182,6 @@ $bordeRadio: 10px;
             }
         }
     }
+
+    
 }

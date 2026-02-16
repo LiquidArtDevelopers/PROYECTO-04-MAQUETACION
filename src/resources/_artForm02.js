@@ -173,18 +173,18 @@ function generarCaptcha(){
 
 
     // RECOJO EN CONSTANTES LOS ELEMENTOS A LOS QUE LES TENDRÉ QUE INSERTAR LOS NÚMEROS RANDOM Y TAMNBIÉN EL INPUT
-    const num1 = document.getElementById("num1ajax")
-    const num2 = document.getElementById("num2ajax")
-    const operador = document.getElementById("operadorajax")
-    const respSystem = document.getElementById("respSystemajax")
+    const num1ajax = document.getElementById("num1ajax")
+    const num2ajax = document.getElementById("num2ajax")
+    const operadorajax = document.getElementById("operadorajax")
+    const respSystemajax = document.getElementById("respSystemajaxajax")
 
     // Esta parte establece un número estático cogido del html
-    // let valorNum1 = (Number)(num1.innerText)
-    // let valorNum2 = (Number)(num2.innerText)
+    // let valornum1ajax = (Number)(num1ajax.innerText)
+    // let valornum2ajax = (Number)(num2ajax.innerText)
 
     // GENERO DOS NÚMEROS RANDOM DEL 0 AL 10 Y LOS CONVIERTO A NUMBER PARA PODER OPERAR
-    let valorNum1 = (Number)(Math.floor(Math.random()*10))
-    let valorNum2 = (Number)(Math.floor(Math.random()*10))
+    let valornum1ajax = (Number)(Math.floor(Math.random()*10))
+    let valornum2ajax = (Number)(Math.floor(Math.random()*10))
 
     // genero un número del 0 al 3 aleatorio para disponerlo en la selección de la operación matemática
     let valorNum3 = (Number)(Math.floor(Math.random()*3))
@@ -194,34 +194,34 @@ function generarCaptcha(){
     switch(valorNum3){
         case 0:
             // HAGO LA OPERACIÓN MATEMÁTICA CON EL +
-            resultado = valorNum1 + valorNum2
-            operador.innerText="+"
+            resultado = valornum1ajax + valornum2ajax
+            operadorajax.innerText="+"
             break
         case 1:
             // HAGO LA OPERACIÓN MATEMÁTICA CON EL -
-            resultado = valorNum1 - valorNum2
-            operador.innerText="-"
+            resultado = valornum1ajax - valornum2ajax
+            operadorajax.innerText="-"
             break
         case 2: 
             // HAGO LA OPERACIÓN MATEMÁTICA CON EL *
-            resultado = valorNum1 * valorNum2
-            operador.innerText="x"
+            resultado = valornum1ajax * valornum2ajax
+            operadorajax.innerText="x"
             break
         default:
-            resultado = valorNum1 + valorNum2
-            operador.innerText="+"
+            resultado = valornum1ajax + valornum2ajax
+            operadorajax.innerText="+"
             break
     }
 
-    // console.log(valorNum1 + " + " + valorNum2 + " = " + resultado)
+    // console.log(valornum1ajax + " + " + valornum2ajax + " = " + resultado)
 
     // AQUÍ TENEMOS QUE ASIGNAR A LOS SPAN LOS NÚMEROS RANDOM
-    num1.innerText = valorNum1
-    num2.innerText = valorNum2
+    num1ajax.innerText = valornum1ajax
+    num2ajax.innerText = valornum2ajax
 
 
     // ASIGNO EL RESULTADO AL VALUE DEL ELEMENTO HTML REPRESENTADO AQUÍ MEDIANTE LA CONSTANTE
-    respSystem.value = resultado
+    respSystemajax.value = resultado
 
 
 }

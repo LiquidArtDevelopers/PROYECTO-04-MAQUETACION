@@ -30,7 +30,6 @@ function comprobarEmailSintaxis($param1){
 
 function enviarRespuestaAsincrona($mensaje, $fallo, $param3){
    
-
     // creación de array asociativo
     $arrayRespuesta = array(
         'mensaje' => $mensaje,
@@ -47,6 +46,7 @@ function enviarRespuestaAsincrona($mensaje, $fallo, $param3){
 }
 
 
+// -------------
 
 // Indica si estamos en modo desarrollo (APP_ENV=dev).
 function vite_is_dev(){

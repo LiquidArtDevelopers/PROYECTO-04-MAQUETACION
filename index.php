@@ -10,6 +10,8 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 
 require __DIR__ . '/config/helpers.php';
 ?>
+
+
 <!doctype html>
 <html lang="en">
   <head>

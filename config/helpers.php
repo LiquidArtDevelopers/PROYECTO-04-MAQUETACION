@@ -44,7 +44,7 @@ function enviarRespuestaAsincrona($mensaje, $fallo, $param3){
 }
 
 
-// -------------
+// ------------- de aquí hacia abajo copiar en vuestro proyecto
 
 // Indica si estamos en modo desarrollo (APP_ENV=dev).
 function vite_is_dev(){

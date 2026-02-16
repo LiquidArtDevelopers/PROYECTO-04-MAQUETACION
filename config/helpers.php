@@ -10,7 +10,6 @@ function comprobarVacio($param1){
     }    
 }
 
-
 // Una función para comprobar si es mayor que un valor y menor que otro valor y devolver true si no cumple esa condición y false si la cumple.
 function comprobarCaracteres($param1, $param2, $param3){
     $caracteres = strlen($param1);
@@ -27,10 +26,8 @@ function comprobarEmailSintaxis($param1){
     return preg_match($regex, $param1);
 }
 
-
 function enviarRespuestaAsincrona($mensaje, $fallo, $param3){
    
-
     // creación de array asociativo
     $arrayRespuesta = array(
         'mensaje' => $mensaje,
@@ -46,7 +43,8 @@ function enviarRespuestaAsincrona($mensaje, $fallo, $param3){
     die;
 }
 
-
+// ###########################################################
+// de aquí hacia abajo, copia y añadir al helpers.php
 
 // Indica si estamos en modo desarrollo (APP_ENV=dev).
 function vite_is_dev(){

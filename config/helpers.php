@@ -43,8 +43,8 @@ function enviarRespuestaAsincrona($mensaje, $fallo, $param3){
     die;
 }
 
-// ###########################################################
-// de aquí hacia abajo, copia y añadir al helpers.php
+
+// -------------
 
 // Indica si estamos en modo desarrollo (APP_ENV=dev).
 function vite_is_dev(){

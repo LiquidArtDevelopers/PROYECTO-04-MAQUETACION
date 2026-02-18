@@ -20,7 +20,7 @@ const pModalEnvio = document.querySelector("#p_modal_envio")
 const botonModalEnvio = document.querySelector('#boton_modal_envio')
 
 
-botonModalEnvio.addEventListener("click", function(){
+botonModalEnvio?.addEventListener("click", function(){
     modalEnvio.style.display="none"
     formulario.style.display="flex"
     formulario.style.filter="initial"  //difumino el form
@@ -44,7 +44,7 @@ botonModalEnvio.addEventListener("click", function(){
 
 
 // Evento de escucha de que se haga submit del form
-formulario.addEventListener("submit", function(e){
+formulario?.addEventListener("submit", function(e){
 
     // prevenir la acción por defecto del submit del form
     e.preventDefault()
@@ -176,7 +176,7 @@ function generarCaptcha(){
     const num1ajax = document.getElementById("num1ajax")
     const num2ajax = document.getElementById("num2ajax")
     const operadorajax = document.getElementById("operadorajax")
-    const respSystemajax = document.getElementById("respSystemajaxajax")
+    const respSystemajax = document.getElementById("respSystemajax")
 
     // Esta parte establece un número estático cogido del html
     // let valornum1ajax = (Number)(num1ajax.innerText)

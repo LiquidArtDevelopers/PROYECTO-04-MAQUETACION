@@ -207,9 +207,9 @@ require __DIR__ . '/config/helpers.php';
                 <!-- captcha -->
                 <label for="respuesta">Resuelve</label>
                 <div class="horizontal">
-                  <span id="num1ajax">3</span>
-                  <span id="operadorajax">+</span>
-                  <span id="num2ajax">7</span>
+                  <span id="num1ajax"></span>
+                  <span id="operadorajax"></span>
+                  <span id="num2ajax"></span>
                   <input type="text" name="respUser" id="respuestaajax" placeholder="Respuesta" autocomplete="off">
                   <input type="hidden" name="respSystem" id="respSystemajax" value="">
                 </div>
